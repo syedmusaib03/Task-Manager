@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.3.12'
+	id 'org.springframework.boot' version '3.3.2'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -24,10 +24,23 @@ repositories {
 }
 
 dependencies {
+	// Spring Boot Web (for controllers, REST APIs, etc.)
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Spring Data JPA (for database interaction)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// MySQL driver
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// Lombok (to reduce boilerplate code)
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// Spring Boot DevTools (for auto-restart during development)
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
